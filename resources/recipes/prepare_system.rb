@@ -47,17 +47,17 @@ sysmem_total = (node['memory']['total'].to_i * 0.90).to_i
 # node attributes related with memory are changed inside the function to have simplicity using recursivity
 memory_services(sysmem_total)
 
-hosts_entries = update_hosts_file()
+# hosts_entries = update_hosts_file()
 
-template '/etc/hosts' do
-  source 'hosts.erb'
-  cookbook 'rb-mailgateway'
-  owner 'root'
-  group 'root'
-  mode '644'
-  retries 2
-  variables(hosts_entries: hosts_entries)
-end
+# template '/etc/hosts' do
+#   source 'hosts.erb'
+#   cookbook 'rb-mailgateway'
+#   owner 'root'
+#   group 'root'
+#   mode '644'
+#   retries 2
+#   variables(hosts_entries: hosts_entries)
+# end
 
 # Build service list for rbcli
 unless File.exist?('/etc/redborder/services.json')

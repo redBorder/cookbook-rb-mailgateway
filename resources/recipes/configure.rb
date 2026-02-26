@@ -4,11 +4,12 @@
 # License:: Affero General Public License, Version 3
 
 # Services configuration
+require 'yaml'
 
 mailgateway_services = mailgateway_services()
 
 rb_common_config 'Configure common' do
-  sensor_role 'mailgateway-sensor'
+  sensor_role 'gateway-sensor'
   action :configure
 end
 
@@ -38,20 +39,23 @@ rbmonitor_config 'Configure redborder-monitor' do
 end
 
 # TODO: replace node['redborder']['services'] in action with 'mailgateway_services'..
-rbcgroup_config 'Configure cgroups' do
-  action :add
-end
+# rbcgroup_config 'Configure cgroups' do
+#   action :add
+# end
 
-rb_chrony_config 'Configure Chrony' do
-  if mailgateway_services['chrony']
-    action :add
-  else
-    action :remove
-  end
-end
+# rb_chrony_config 'Configure Chrony' do
+#   if mailgateway_services['chrony']
+#     action :add
+#   else
+#     action :remove
+#   end
+# end
 
 # MOTD
-manager = `grep 'cloud_address' /etc/redborder/rb_init_conf.yml | cut -d' ' -f2`
+rb_config = YAML.load_file('/etc/redborder/rb_init_conf.yml')
+
+manager = rb_config['cloud_address'] || rb_config['webui_host'] || 'unknown'
+registration_mode = rb_config['registration_mode'] || 'unknown'
 
 template '/etc/motd' do
   source 'motd.erb'
@@ -59,7 +63,11 @@ template '/etc/motd' do
   group 'root'
   mode '0644'
   retries 2
-  variables(manager_info: node['redborder']['cdomain'], manager: manager)
+  variables(
+    manager_info: rb_config['cdomain'],
+    manager: manager,
+    registration_mode: registration_mode
+  )
 end
 
 # TODO: replace node['redborder']['services'] in action with 'mailgateway_services'..
