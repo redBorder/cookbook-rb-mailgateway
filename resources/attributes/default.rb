@@ -28,10 +28,7 @@ default['redborder']['zookeeper']['port'] = 2181
 default['redborder']['memory_services'] = {}
 default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
 
-
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
 
-
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
-
