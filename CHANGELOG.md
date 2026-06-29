@@ -1,6 +1,11 @@
 cookbook-rb-mailgateway CHANGELOG
 ===============
 
+## 0.1.0
+
+  - manegron
+    - [eeeaffa] Always update services.json
+
 ## 0.0.2
 
   - vimesa
