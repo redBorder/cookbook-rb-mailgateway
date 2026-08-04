@@ -42,7 +42,6 @@ rbcgroup_config 'Configure cgroups' do
   action :add
 end
 
-
 # rb_chrony_config 'Configure Chrony' do
 #   if mailgateway_services['chrony']
 #     action :add
