@@ -1,6 +1,11 @@
 cookbook-rb-mailgateway CHANGELOG
 ===============
 
+## 0.1.1
+
+  - manegron
+    - [828671a] Upload cookbook only if opscode-erchef is active
+
 ## 0.1.0
 
   - manegron
