@@ -1,6 +1,14 @@
 cookbook-rb-mailgateway CHANGELOG
 ===============
 
+## 0.2.0
+
+  - Miguel Negrón
+    - [38ac14a] Merge pull request #4 from redBorder/improvement/#26867_reduce_chef_server_queries
+  - manegron
+    - [38ac14a] Merge pull request #4 from redBorder/improvement/#26867_reduce_chef_server_queries
+    - [f906566] Reduce chef server queries
+
 ## 0.1.1
 
   - manegron
