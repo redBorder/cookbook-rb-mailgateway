@@ -38,10 +38,9 @@ rbmonitor_config 'Configure redborder-monitor' do
   end
 end
 
-# TODO: replace node['redborder']['services'] in action with 'mailgateway_services'..
-# rbcgroup_config 'Configure cgroups' do
-#   action :add
-# end
+rbcgroup_config 'Configure cgroups' do
+  action :add
+end
 
 # rb_chrony_config 'Configure Chrony' do
 #   if mailgateway_services['chrony']
