@@ -1,6 +1,15 @@
 cookbook-rb-mailgateway CHANGELOG
 ===============
 
+## 1.0.0
+
+  - manegron
+    - [103a390] Update RPM workflow
+    - [bcd3f45] Merge pull request #5 from redBorder/improvement/#27292_migrate_to_cinc
+    - [b28bd5b] Migrate to cinc
+  - Miguel Negrón
+    - [bcd3f45] Merge pull request #5 from redBorder/improvement/#27292_migrate_to_cinc
+
 ## 0.2.0
 
   - Miguel Negrón
